@@ -1,0 +1,96 @@
+
+#include <iostream>
+using namespace std;
+
+	//variavis globais 
+	int fnc=0; // Contador da fila normal
+	int fpc=0; // Contador da fila prioritaria
+
+int main() {
+	
+	string cpf; 
+	int idade; //Enrada de numeros inteiros até 10 caracteres 
+	string genero; 
+	string fn[400];
+	string fp[400];
+	bool sair=1;
+	int menu;
+	
+	
+	while (sair==1){ //Indice do menu
+		cout << "*** EXISTEM " << fnc+fpc  << " PESSOAS NA FILA *** " << "\n" << "\n" << "--------MENU--------" << "\n" << "1) Novo usuario" << "\n" << "2) Exibir fila" << "\n" << "3) Chamar proximo" << "\n" << "0) Sair" << "\n";
+		cin >> menu;
+	switch (menu) {
+	case 0:{ return 0;
+	}
+		
+	case 1:{ //Cadastro de novo usuario
+		int s=1;
+		 while (s==1)	{
+		 	int prioridade=2;
+		 	system ("CLS");
+			cout << "Informe CPF\n";
+			cin >> cpf;
+			cout << "Informe a idade\n";
+			cin >> idade;
+			cout << "Digite M para genero masculino e F para genero feminino\n";
+			cin >>  genero;
+			if (genero=="f" or genero=="F") {
+				cout << "Gestante? Digite 1 para sim ou 2 para nao\n"; //Digite 1 para sim e 2 para nao 
+				cin >> prioridade;
+			}
+			if	(idade>64) {prioridade = 1;}	
+			if (prioridade==2) {
+				fnc++;
+				fn[fnc-1] = cpf;	
+			}		
+			else {
+				fpc++;
+				fp[fpc-1] = cpf;
+			}		 			
+		cout << "Deseja cadastrar um novo usuario? 1 para sim ou 2 para nao" << endl;			
+		cin >> s;
+		system ("CLS"); 
+		}
+	break;
+	}
+	case 2:{
+		//o (i dentro do for so existe dentro do for)
+		if(fpc>0){ for(int i=0;i<fpc;i++){
+					cout << fp[i] << " - Prioridade" << endl;}	
+		}
+		if(fnc>0){ for(int i=0;i<fnc;i++){
+					cout << fn[i] << endl;}
+			
+		}		
+		break;
+	}
+	case 3:{
+		system ("CLS");
+		if(fpc>0){ 
+			cout << "----PROXIMO----:  " << fp[0] << endl;
+			fpc--; 
+			for(int i=0;i<fpc;i++){
+				fp[i]= fp[i+1];	
+			}
+		}
+			
+		else if (fnc>0){ 
+			cout << "CHAMANDO:  " << fn[0] << endl;
+			fnc--; 
+			for(int i=0;i<fnc;i++){
+				fn[i]= fn[i+1];
+			}
+		} 
+		else cout << "FILA ZERADA" << endl << endl;
+		break;
+				
+	}
+       	
+	
+	}
+	}			
+			
+	return 0; 
+	
+	}
