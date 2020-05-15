@@ -3,13 +3,13 @@
 using namespace std;
 
 	//variavis globais 
-	int fnc=0; // Contador da fila normal
-	int fpc=0; // Contador da fila prioritaria
+	int fnc=0; 
+	int fpc=0; 
 
 int main() {
 	
 	string cpf; 
-	int idade; //Enrada de numeros inteiros até 10 caracteres 
+	int idade;  
 	string genero; 
 	string fn[400];
 	string fp[400];
@@ -17,14 +17,14 @@ int main() {
 	int menu;
 	
 	
-	while (sair==1){ //Indice do menu
+	while (sair==1){
 		cout << "*** EXISTEM " << fnc+fpc  << " PESSOAS NA FILA *** " << "\n" << "\n" << "--------MENU--------" << "\n" << "1) Novo usuario" << "\n" << "2) Exibir fila" << "\n" << "3) Chamar proximo" << "\n" << "0) Sair" << "\n";
 		cin >> menu;
 	switch (menu) {
 	case 0:{ return 0;
 	}
 		
-	case 1:{ //Cadastro de novo usuario
+	case 1:{ 
 		int s=1;
 		 while (s==1)	{
 		 	int prioridade=2;
@@ -36,7 +36,7 @@ int main() {
 			cout << "Digite M para genero masculino e F para genero feminino\n";
 			cin >>  genero;
 			if (genero=="f" or genero=="F") {
-				cout << "Gestante? Digite 1 para sim ou 2 para nao\n"; //Digite 1 para sim e 2 para nao 
+				cout << "Gestante? Digite 1 para sim ou 2 para nao\n";
 				cin >> prioridade;
 			}
 			if	(idade>64) {prioridade = 1;}	
@@ -55,7 +55,7 @@ int main() {
 	break;
 	}
 	case 2:{
-		//o (i dentro do for so existe dentro do for)
+
 		if(fpc>0){ for(int i=0;i<fpc;i++){
 					cout << fp[i] << " - Prioridade" << endl;}	
 		}
